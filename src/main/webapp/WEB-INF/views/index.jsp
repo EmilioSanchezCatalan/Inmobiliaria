@@ -10,9 +10,20 @@
 <title>Inuja</title>
 </head>
 <body>
+	<h1>Inuja</h1>
+	<div id="registrarse">
+		<form action="Registrarse" method ="POST">
+		<input type="submit" value="Registrarse" /><br>
+		</form>
+	</div>
+	<div id = "inicarSesion">
+		<form action="IniciarSesion" method ="POST">
+		<input type="submit" value="Iniciar sesion" /><br> 
+		</form>
+	</div>
 	<div id="lista_pisos"></div>
 	<script type="text/javascript">
-		var url = "http://localhost:8080/inmobiliaria/Jpisos";
+		var url = "http://localhost:8282/inmobiliaria/Jpisos";
 		xhttp = new XMLHttpRequest();
 		xhttp.open("GET", url, true);
 		xhttp.send();
@@ -32,19 +43,23 @@
 							var precio = data[iter].precio;
 							var html_user = '<tr>'
 									+ '<td>'
-									+ '<img src="<c:url value="/' + imagen +'"/>">'
+									+ '<img id = "imagenPrincipal" src="<c:url value="/' + imagen +'"/>">'
 									+ '</td>' + '<td>' + direccion + '</td>'
 									+ '<td>' + descripcion + '</td>' + '<td>'
 									+ plazas + '</td>' + '<td>' + precio
 									+ '</td>' + '</tr>';
+
 							html = html + html_user;
 						}
+
 						html = html + '</table>';
+
 					}
 				}
 			}
 			document.getElementById("lista_pisos").innerHTML = html;
 		}
 	</script>
+	</div>
 </body>
 </html>
