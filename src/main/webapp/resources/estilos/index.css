@@ -12,6 +12,7 @@ figure, aside, header, section, figcaption {
 	vertical-align: baseline;
 	background: transparent;
 }
+
 h1{
 	font: normal 3em Verdana, Arial;
 	text-align: center;
@@ -57,3 +58,39 @@ td {
     vertical-align: like top;
 }
 
+#header { /*Para centrar*/
+	margin: auto;
+	width: 500px;
+	font-family: Arial;
+}
+
+ul, ol { /*quitar los puntos de la listas*/
+	list-style:none;
+}
+
+.nav li a {
+	background-color:#000;
+	color:#fff;
+	text-decoration:none;
+	padding:10px 12px;
+	display:block;/*los elementos no se pegan*/
+}
+			
+.nav > li {
+	float:left;/*para girarlo*/
+}		
+			
+.nav li a:hover {/*para que valla cambiando de color al pasar el raton*/
+	background-color:#434343;
+}	
+
+.nav li ul {
+	display:none;/*para que desaparezca los submenus*/
+	position:absolute;
+	min-width:140px;
+}		
+
+.nav li:hover > ul {
+	display:block;
+}			
+	

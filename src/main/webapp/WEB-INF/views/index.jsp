@@ -11,16 +11,22 @@
 </head>
 <body>
 	<h1>Inuja</h1>
-	<div id="registrarse">
-		<form action="Registrarse" method ="POST">
-		<input type="submit" value="Registrarse" /><br>
-		</form>
+
+	<div id="header">
+		<ul class="nav">
+			<li><a href="http://localhost:8282/inmobiliaria/Registrarse">Registrarse</a></li>
+			<li><a href="">Iniciar sesion</a></li><!--Sin implementar-->
+			<li><a href="">Listar pisos</a><!--Sin implementar-->
+				<ul>
+						<li><a href="">Listar pisos por direccion</a></li><!--Sin implementar-->
+						<li><a href="">Listar pisos por propietario</a></li><!--Sin implementar-->						
+				</ul>
+			</li>
+			<li><a href="">Contacto</a></li>
+					
+		</ul>
 	</div>
-	<div id = "inicarSesion">
-		<form action="IniciarSesion" method ="POST">
-		<input type="submit" value="Iniciar sesion" /><br> 
-		</form>
-	</div>
+
 	<div id="lista_pisos"></div>
 	<script type="text/javascript">
 		var url = "http://localhost:8282/inmobiliaria/Jpisos";

@@ -34,8 +34,8 @@ public class HomeController {
 		ArrayList<DtoPiso> lpisos = dao.listar();
 		model.addAttribute("lpisos", lpisos);
 		return "jpisos";
-	}
-	@RequestMapping(value = "/Registrarse", method = RequestMethod.POST)
+	}//method = RequestMethod.POST
+	@RequestMapping(value = "/Registrarse")
 	public String registrar(){
 		return "registrar";
 	}
