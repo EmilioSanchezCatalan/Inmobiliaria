@@ -4,4 +4,5 @@ import com.ujaen.dto.DtoPropietario;
 
 public interface DaoPropietario_interface {
 	public void insertar(DtoPropietario propietario);
+	public boolean existeUsuario(DtoPropietario propietario);
 }

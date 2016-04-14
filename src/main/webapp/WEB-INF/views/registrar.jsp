@@ -9,7 +9,7 @@
 </head>
 <body>
 	<h2>Registrarse como:</h2>
-	<form action="Elegir" method ="POST">
+	<form action="Registro" method ="POST">
 		<input type="radio" name="registrar" value = "alumno"/>Alumno<br/>
 		<input type="radio" name="registrar" value = "propietario"/>Propietario<br/>
 		<input type="submit" value="Siguiente">

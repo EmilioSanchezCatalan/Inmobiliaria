@@ -6,6 +6,7 @@ public class DtoPropietario {
 	private String apellidos;
 	private String tlf;
 	private String correo;
+	private String usuario;
 	public String getDni() {
 		return dni;
 	}
@@ -35,6 +36,12 @@ public class DtoPropietario {
 	}
 	public void setCorreo(String correo) {
 		this.correo = correo;
+	}
+	public String getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 	
 	

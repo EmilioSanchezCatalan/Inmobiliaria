@@ -12,14 +12,14 @@
 
 		DNI: <input type="text" name="dni"><br>
 		Nombre: <input type="text" name="nombre"><br>
-		Apellidos:<input type = "text" name="apellidos"></input><br>
-		Fecha de nacimiento (00/00/0000): <input type="text" name="fecha_nacimiento"><br>
+		Apellidos:<input type="text" name="apellidos"><br>
+		Fecha de nacimiento(00/00/0000):<input type="text" name="fecha_nacimiento"><br>
 		Telefono: <input type="text" name="tlf"><br>
-		Correo: <input type="text" name="correo"><br>
-		Usuario: <input type="text" name="usuario"><br>
-		<input type="button" value="Atras"
-			onclick="window.location = '/inmobiliaria/'" id="atras"> <input
-			type="submit" value="Añadir" id="ejecute">
+		Correo: <input type="text" name="correo"><br> 
+		Usuario: <input type="text" name="usuario"><br> 
+		Password:<input type="password" name="pass"><br>
+		<input type="button" value="Atras" onclick="window.location = '/inmobiliaria/'" id="atras">
+		<input type="submit" value="Añadir" id="ejecute">
 
 	</form>
 </body>
