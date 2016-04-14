@@ -14,22 +14,24 @@
 
 	<div id="header">
 		<ul class="nav">
-			<li><a href="http://localhost:8282/inmobiliaria/Registrarse">Registrarse</a></li>
-			<li><a href="">Iniciar sesion</a></li><!--Sin implementar-->
-			<li><a href="">Listar pisos</a><!--Sin implementar-->
+			<li><a href="Registrarse">Registrarse</a></li>
+			<li><a href="Sesion">Iniciar sesion</a></li>
+			<!--Sin implementar-->
+			<li><a href="">Listar pisos</a> <!--Sin implementar-->
 				<ul>
-						<li><a href="">Listar pisos por direccion</a></li><!--Sin implementar-->
-						<li><a href="">Listar pisos por propietario</a></li><!--Sin implementar-->						
-				</ul>
-			</li>
+					<li><a href="">Listar pisos por direccion</a></li>
+					<!--Sin implementar-->
+					<li><a href="">Listar pisos por propietario</a></li>
+					<!--Sin implementar-->
+				</ul></li>
 			<li><a href="">Contacto</a></li>
-					
+
 		</ul>
 	</div>
 
 	<div id="lista_pisos"></div>
 	<script type="text/javascript">
-		var url = "http://localhost:8282/inmobiliaria/Jpisos";
+		var url = "Jpisos";
 		xhttp = new XMLHttpRequest();
 		xhttp.open("GET", url, true);
 		xhttp.send();
@@ -66,6 +68,6 @@
 			document.getElementById("lista_pisos").innerHTML = html;
 		}
 	</script>
-	</div>
+
 </body>
 </html>
