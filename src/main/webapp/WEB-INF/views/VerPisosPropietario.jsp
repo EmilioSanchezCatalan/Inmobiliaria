@@ -6,31 +6,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="<c:url value="/resources/estilos/index.css"/>" rel="stylesheet">
-<title>Inuja</title>
+<title>Pisos del propietario</title>
 </head>
 <body>
-	<h1>Inuja</h1>
-
-	<div id="header">
-		<ul class="nav">
-			<li><a href="Registrarse">Registrarse</a></li>
-			<li><a href="Sesion">Iniciar sesion</a></li>
-			<!--Sin implementar-->
-			<li><a href="">Listar pisos</a> <!--Sin implementar-->
-				<ul>
-					<li><a href=verPisoPl>Listar pisos por plazas</a></li>
-					<!--Sin implementar verPisoPl-->
-					<li><a href="">Listar pisos por precios</a></li>
-					<!--Sin implementar-->
-				</ul></li>
-			<li><a href="">Contacto</a></li>
-
-		</ul>
-	</div>
-
 	<div id="lista_pisos">
 		<script type="text/javascript">
-			var url = "Jpisos";
+			var url = "JPisosPropietario";
 			xhttp = new XMLHttpRequest();
 			xhttp.open("GET", url, true);
 			xhttp.send();
@@ -49,12 +30,12 @@
 								var plazas = data[iter].plazas;
 								var precio = data[iter].precio;
 								var html_user = '<tr>'
-										+ '<td>'
-										+ '<img id = "imagenPrincipal" src="<c:url value="/' + imagen +'"/>">'
-										+ '</td>' + '<td>' + direccion
-										+ '</td>' + '<td>' + descripcion
-										+ '</td>' + '<td>' + plazas + '</td>'
-										+ '<td>' + precio + '</td>' + '</tr>';
+									+ '<td>'
+									+ '<img id = "imagenPrincipal" src="<c:url value="/' + imagen +'"/>">'
+									+ '</td>' + '<td>' + direccion
+									+ '</td>' + '<td>' + descripcion
+									+ '</td>' + '<td>' + plazas + '</td>'
+									+ '<td>' + precio + '</td>' + '</tr>';
 
 								html = html + html_user;
 							}

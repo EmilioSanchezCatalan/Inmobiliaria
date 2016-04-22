@@ -12,7 +12,7 @@
 
 		DNI: <input type="text" name="dni"><br> 
 		Nombre: <input type="text" name="nombre"><br> 
-		Apellidos:<input name="apellidos"><br>
+		Apellidos:<input type = "text" name="apellidos"><br>
 		Telefono: <input type="text" name="tlf"><br>
 		Correo: <input type="text" name="correo"><br>
 		usuario: <input type="text" name="usuario"><br>

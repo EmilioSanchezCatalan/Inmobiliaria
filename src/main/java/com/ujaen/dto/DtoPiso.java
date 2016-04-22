@@ -2,20 +2,22 @@ package com.ujaen.dto;
 
 
 public class DtoPiso {
-	private int cod_piso;
+	private String cod_piso;
 	private String imagen;
 	private String direccion;
 	private String descripcion;
-	private int plazas;
-	private float precio;
+	private String plazas;
+	private String precio;
 	private String dni_p;
 
 	public DtoPiso() {
 
 	}
+	
 
-	public DtoPiso(int cod_piso, String imagen, String direccion, String descripcion, int plazas, float precio,
+	public DtoPiso(String cod_piso, String imagen, String direccion, String descripcion, String plazas, String precio,
 			String dni_p) {
+		super();
 		this.cod_piso = cod_piso;
 		this.imagen = imagen;
 		this.direccion = direccion;
@@ -25,11 +27,12 @@ public class DtoPiso {
 		this.dni_p = dni_p;
 	}
 
-	public int getCod_piso() {
+
+	public String getCod_piso() {
 		return cod_piso;
 	}
 
-	public void setCod_piso(int cod_piso) {
+	public void setCod_piso(String cod_piso) {
 		this.cod_piso = cod_piso;
 	}
 
@@ -57,19 +60,19 @@ public class DtoPiso {
 		this.descripcion = descripcion;
 	}
 
-	public int getPlazas() {
+	public String getPlazas() {
 		return plazas;
 	}
 
-	public void setPlazas(int plazas) {
+	public void setPlazas(String plazas) {
 		this.plazas = plazas;
 	}
 
-	public float getPrecio() {
+	public String getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(float precio) {
+	public void setPrecio(String precio) {
 		this.precio = precio;
 	}
 
@@ -81,4 +84,5 @@ public class DtoPiso {
 		this.dni_p = dni_p;
 	}
 
+	
 }

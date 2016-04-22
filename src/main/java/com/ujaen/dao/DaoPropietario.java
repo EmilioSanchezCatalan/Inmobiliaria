@@ -50,5 +50,26 @@ public class DaoPropietario implements DaoPropietario_interface {
 		}
 		return existe;
 	}
+	public String cogerDNI(String usuario){
+		String dni = null;
+		String sql = "select dni from propietario where usuario = ?;";
+		ResultSet rs = null;
+		dao.getConnection();
+		try {
+			PreparedStatement smt = dao.conn.prepareStatement(sql);
+			smt.setString(1, usuario);
+			rs = smt.executeQuery();
+			while(rs.next()){
+				dni = rs.getString(1);
+			}
+			rs.close();
+			smt.close();
+			dao.conn.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return dni;
+	}
 
 }
