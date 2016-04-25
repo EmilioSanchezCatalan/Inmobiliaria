@@ -9,7 +9,7 @@ public class Dao {
 	String url = "jdbc:mysql://localhost:3306/inmobiliaria";
 	Connection conn;
 
-	public Dao(){
+	public Dao() {
 		cargarDriver();
 	}
 

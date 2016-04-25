@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Panel alumno</title>
+<title>Inuja</title>
 </head>
 <body>
 <h1>Bienvenido <c:out value="${usuario}"/></h1>

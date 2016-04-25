@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Registrarse</title>
+<title>Inuja</title>
 </head>
 <body>
 	<h2>Registrarse como:</h2>

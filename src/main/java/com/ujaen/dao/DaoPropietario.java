@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.ujaen.dto.DtoPropietario;
+import com.ujaen.dao_interfaces.DaoPropietario_interface;
 
 public class DaoPropietario implements DaoPropietario_interface {
 	Dao dao;
@@ -50,7 +51,8 @@ public class DaoPropietario implements DaoPropietario_interface {
 		}
 		return existe;
 	}
-	public String cogerDNI(String usuario){
+
+	public String cogerDNI(String usuario) {
 		String dni = null;
 		String sql = "select dni from propietario where usuario = ?;";
 		ResultSet rs = null;
@@ -59,13 +61,13 @@ public class DaoPropietario implements DaoPropietario_interface {
 			PreparedStatement smt = dao.conn.prepareStatement(sql);
 			smt.setString(1, usuario);
 			rs = smt.executeQuery();
-			while(rs.next()){
+			while (rs.next()) {
 				dni = rs.getString(1);
 			}
 			rs.close();
 			smt.close();
 			dao.conn.close();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

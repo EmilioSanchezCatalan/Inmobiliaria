@@ -2,7 +2,9 @@ package com.ujaen.inmobiliaria;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,15 +16,13 @@ import com.ujaen.dto.*;
 
 @Controller
 public class HomeController {
-	String usuarioOn;
-	
 	// Principal
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index() {
 		return "index";
 	}
 
-	// JSON DE LOS PISOS
+	// JSON de todos los pisos
 	@RequestMapping(value = "/Jpisos", method = RequestMethod.GET)
 	public String jpisos(Model model) {
 		DaoPiso dao = new DaoPiso();
@@ -121,126 +121,36 @@ public class HomeController {
 	}
 
 	@RequestMapping(value = "/Autentificacion", method = RequestMethod.POST)
-	public String autentificacion(HttpServletRequest req,Model model) {
+	public String autentificacion(HttpServletRequest req, Model model, HttpServletResponse resp) {
 
 		String usuario = req.getParameter("usuario");
 		String pass = req.getParameter("pass");
-		
+
 		DtoAutentifica autentifica = new DtoAutentifica();
 		DtoAlumno alumno = new DtoAlumno();
 		DtoPropietario propietario = new DtoPropietario();
-		
+
 		autentifica.setUsuario(usuario);
 		autentifica.setPass(pass);
 		alumno.setUsuario(usuario);
 		propietario.setUsuario(usuario);
-				
-		
+
 		DaoAutentifica daoA = new DaoAutentifica();
 		DaoAlumno daoAl = new DaoAlumno();
 		DaoPropietario daoP = new DaoPropietario();
-				
-		if (daoA.Auntenficado(autentifica)==true){
-			if(daoAl.existeUsuario(alumno)){
+
+		if (daoA.Auntenficado(autentifica) == true) {
+			Cookie sesionCookie = new Cookie("username", usuario);
+			resp.addCookie(sesionCookie);
+			if (daoAl.existeUsuario(alumno)) {
 				model.addAttribute("usuario", usuario);
 				return "PanelAlumno";
-			}
-			else if(daoP.existeUsuario(propietario)){
-				usuarioOn = usuario;
+			} else if (daoP.existeUsuario(propietario)) {
 				model.addAttribute("usuario", usuario);
 				return "PanelPropietario";
 			}
 		}
 		return "ErrorAuth";
 	}
-	
-	@RequestMapping(value = "/JPisosPropietario", method = RequestMethod.GET)
-	public String verPisosP(Model model) {
-		
-		DaoPiso dao = new DaoPiso();
-		DaoPropietario daoP = new DaoPropietario();
-		
-		String dni = daoP.cogerDNI(usuarioOn);
-				
-		ArrayList<DtoPiso> lpisos = dao.listarPropietario(dni);
-		model.addAttribute("lpisos", lpisos);
-		return "jpisos";
-	
-	}
-	
-	@RequestMapping(value = "/PisosPropietario", method = RequestMethod.GET)
-	public String verpisosP() {
-		return "VerPisosPropietario";	
-	}
-	
-	
-	
-	@RequestMapping(value = "/CerrarSesion", method = RequestMethod.GET)
-	public String cerrarSesion(){
-		usuarioOn = null;
-		
-		return "index";
-	}
-	
-	@RequestMapping(value = "/CrearPiso", method = RequestMethod.GET)
-	public String insertarPiso(){
-		return "insertarPiso";
-	}
-	
-	@RequestMapping(value = "/InsertPiso", method = RequestMethod.POST)
-	public String insertPiso(HttpServletRequest req){
-		
-		String imagen = req.getParameter("imagen");
-		String direccion  = req.getParameter("direccion");
-		String descripcion  = req.getParameter("descripcion");
-		String plazas  = req.getParameter("plazas");
-		String precio  = req.getParameter("precio");
-				
-		DtoPiso piso = new DtoPiso();
-		
-		piso.setImagen(imagen);
-		piso.setDireccion(direccion);
-		piso.setDescripcion(descripcion);
-		piso.setPlazas(plazas);
-		piso.setPrecio(precio);
-		
-	   
-	    DaoPiso daoP = new DaoPiso();
-	    DaoPropietario daoPr = new DaoPropietario();
-	    String dni = daoPr.cogerDNI(usuarioOn);
-	    
-	    piso.setDni_p(dni);
-	    
-	    daoP.insertarPiso(piso);
-	   
-		
-		return "PanelPropietario";
-	}
 
-	@RequestMapping(value = "/ListarPlazas", method = RequestMethod.GET)
-	public String listarPlazas(HttpServletRequest req,Model model){
-		DaoPiso dao = new DaoPiso();
-		
-		//String plazas = req.getParameter("plazas");
-		//System.out.println(plazas);
-		String plazas ="4";
-		ArrayList<DtoPiso> lpisos = dao.listarPlazas(plazas);
-		model.addAttribute("lpisos", lpisos);
-		return "jpisos";
-		
-		
-	}
-	
-	@RequestMapping(value = "/indicarPlazas", method = RequestMethod.GET)
-	public String indicarPlazas() {
-	
-		return "indicarPlazas";
-	}
-	
-	@RequestMapping(value = "/verPisoPl", method = RequestMethod.GET)
-	public String verPisoPl() {
-	
-		return "listarPlazas";
-	}
-	
 }

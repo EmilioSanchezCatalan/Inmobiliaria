@@ -6,7 +6,7 @@
 <c:set var="tam" value="${fn:length(lpisos)}" />
 <c:out value="[" />
 <c:forEach var="list" items="${lpisos}" varStatus="estado">
-	{"imagen":"<c:out value="${list.imagen}" />"<c:out value="," />"direccion":"<c:out
+	{"imagen":"<c:out value="${list.imagenSalon}" />"<c:out value="," />"direccion":"<c:out
 		value="${list.direccion}" />"<c:out value="," />"descripcion":"<c:out
 		value="${list.descripcion }" />"<c:out value="," />"plazas":"<c:out
 		value="${list.plazas }" />"<c:out value="," />"precio":"<c:out

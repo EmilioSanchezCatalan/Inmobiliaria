@@ -7,17 +7,13 @@
 <title>Inuja</title>
 </head>
 <body>
-	Rellene los siguientes datos:
-	<form action="InsertPiso" method="post">
+	<form action="SubirFotos" method="post" enctype="multipart/form-data">
 
-		Direccion: <input type="text" name="direccion"><br>
-		Plazas: <input type="text" name="plazas"><br>
-		Precio: <input type="text" name="precio"><br>
-		Descripcion: <textarea name="msg" rows="15" cols="50"></textarea>
-		
+		ImagenSalon: <input type="file" name="imagenSalon"><br>
+		ImagenCocina: <input type="file" name="imagenCocina"><br>
+		ImagenDormitorio: <input type="file" name="imagenDormitorio"><br>
+		ImagenBaño: <input type="file" name="imagenBano"><br>
 		<input type="submit" value="Enviar" />
-		
-
 	</form>
 </body>
 </html>

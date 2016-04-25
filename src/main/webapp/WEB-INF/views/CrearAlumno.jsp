@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Crear alumno</title>
+<title>Inuja</title>
 </head>
 <body>
 	Rellene los siguientes datos:
@@ -13,7 +13,7 @@
 		DNI: <input type="text" name="dni"><br>
 		Nombre: <input type="text" name="nombre"><br>
 		Apellidos:<input type="text" name="apellidos"><br>
-		Fecha de nacimiento(00/00/0000):<input type="text" name="fecha_nacimiento"><br>
+		Fecha de nacimiento(dd/mm/yyyy):<input type="text" name="fecha_nacimiento"><br>
 		Telefono: <input type="text" name="tlf"><br>
 		Correo: <input type="text" name="correo"><br> 
 		Usuario: <input type="text" name="usuario"><br> 

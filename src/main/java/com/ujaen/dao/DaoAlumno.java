@@ -3,9 +3,8 @@ package com.ujaen.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import com.ujaen.dao_interfaces.DaoAlumno_interface;
 import com.ujaen.dto.DtoAlumno;
-
 
 public class DaoAlumno implements DaoAlumno_interface {
 
@@ -14,8 +13,8 @@ public class DaoAlumno implements DaoAlumno_interface {
 	public DaoAlumno() {
 		dao = new Dao();
 	}
-	
-	public void insertar(DtoAlumno alumno){
+
+	public void insertar(DtoAlumno alumno) {
 		String sql = "INSERT into Alumnos (dni,nombre,apellidos,fecha_nacimiento,tlf,correo,usuario) VALUES(?,?,?,?,?,?,?);";
 		dao.getConnection();
 		try {
@@ -30,11 +29,12 @@ public class DaoAlumno implements DaoAlumno_interface {
 			smt.execute();
 			smt.close();
 			dao.conn.close();
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
+
 	public boolean existeUsuario(DtoAlumno alumno) {
 		String sql = "SELECT IF (exists(SELECT * FROM alumnos where usuario = ?),true, false);";
 		ResultSet rs = null;

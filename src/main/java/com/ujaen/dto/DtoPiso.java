@@ -1,25 +1,29 @@
 package com.ujaen.dto;
 
-
 public class DtoPiso {
-	private String cod_piso;
-	private String imagen;
+	private int cod_piso;
+	private String imagenSalon;
+	private String imagenCocina;
+	private String imagenDormitorio;
+	private String imagenBano;
 	private String direccion;
 	private String descripcion;
-	private String plazas;
-	private String precio;
+	private int plazas;
+	private float precio;
 	private String dni_p;
 
 	public DtoPiso() {
 
 	}
-	
 
-	public DtoPiso(String cod_piso, String imagen, String direccion, String descripcion, String plazas, String precio,
-			String dni_p) {
+	public DtoPiso(int cod_piso, String imagenSalon, String imagenCocina, String imagenDormitorio, String imagenBano,
+			String direccion, String descripcion, int plazas, float precio, String dni_p) {
 		super();
 		this.cod_piso = cod_piso;
-		this.imagen = imagen;
+		this.imagenSalon = imagenSalon;
+		this.imagenCocina = imagenCocina;
+		this.imagenDormitorio = imagenDormitorio;
+		this.imagenBano = imagenBano;
 		this.direccion = direccion;
 		this.descripcion = descripcion;
 		this.plazas = plazas;
@@ -27,21 +31,44 @@ public class DtoPiso {
 		this.dni_p = dni_p;
 	}
 
-
-	public String getCod_piso() {
+	public int getCod_piso() {
 		return cod_piso;
 	}
 
-	public void setCod_piso(String cod_piso) {
+	public void setCod_piso(int cod_piso) {
 		this.cod_piso = cod_piso;
 	}
 
-	public String getImagen() {
-		return imagen;
+	public String getImagenSalon() {
+		return imagenSalon;
 	}
 
-	public void setImagen(String imagen) {
-		this.imagen = imagen;
+	public void setImagenSalon(String imagenSalon) {
+		this.imagenSalon = imagenSalon;
+	}
+
+	public String getImagenCocina() {
+		return imagenCocina;
+	}
+
+	public void setImagenCocina(String imagenCocina) {
+		this.imagenCocina = imagenCocina;
+	}
+
+	public String getImagenDormitorio() {
+		return imagenDormitorio;
+	}
+
+	public void setImagenDormitorio(String imagenDormitorio) {
+		this.imagenDormitorio = imagenDormitorio;
+	}
+
+	public String getImagenBano() {
+		return imagenBano;
+	}
+
+	public void setImagenBano(String imagenBano) {
+		this.imagenBano = imagenBano;
 	}
 
 	public String getDireccion() {
@@ -60,19 +87,19 @@ public class DtoPiso {
 		this.descripcion = descripcion;
 	}
 
-	public String getPlazas() {
+	public int getPlazas() {
 		return plazas;
 	}
 
-	public void setPlazas(String plazas) {
+	public void setPlazas(int plazas) {
 		this.plazas = plazas;
 	}
 
-	public String getPrecio() {
+	public float getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(String precio) {
+	public void setPrecio(float precio) {
 		this.precio = precio;
 	}
 
@@ -83,6 +110,6 @@ public class DtoPiso {
 	public void setDni_p(String dni_p) {
 		this.dni_p = dni_p;
 	}
-
 	
+
 }
