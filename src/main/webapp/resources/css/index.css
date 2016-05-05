@@ -1,0 +1,23 @@
+img {
+	width: 200px;
+	height: 200px;
+}
+
+.main {
+	margin-top: 100px;
+}
+
+.row {
+	padding-top: 20px;
+	display: table;
+}
+
+.row [class*="col-"] {
+	display: table-cell;
+	float: none;
+	vertical-align: middle;
+}
+
+.panel-header {
+	text-align: center;
+}

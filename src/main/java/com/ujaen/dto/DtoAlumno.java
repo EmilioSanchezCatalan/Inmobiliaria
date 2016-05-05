@@ -7,7 +7,24 @@ public class DtoAlumno {
 	private String fecha_nacimiento;
 	private String tlf;
 	private String correo;
+	private int cod_piso;
 	private String usuario;
+
+	public DtoAlumno() {
+
+	}
+
+	public DtoAlumno(String dni, String nombre, String apellidos, String fecha_nacimiento, String tlf, String correo,
+			int cod_piso, String usuario) {
+		this.dni = dni;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.fecha_nacimiento = fecha_nacimiento;
+		this.tlf = tlf;
+		this.correo = correo;
+		this.cod_piso = cod_piso;
+		this.usuario = usuario;
+	}
 
 	public String getDni() {
 		return dni;
@@ -55,6 +72,14 @@ public class DtoAlumno {
 
 	public void setCorreo(String correo) {
 		this.correo = correo;
+	}
+
+	public int getCod_piso() {
+		return cod_piso;
+	}
+
+	public void setCod_piso(int cod_piso) {
+		this.cod_piso = cod_piso;
 	}
 
 	public String getUsuario() {

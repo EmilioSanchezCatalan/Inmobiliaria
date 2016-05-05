@@ -9,7 +9,9 @@ public class DtoPiso {
 	private String direccion;
 	private String descripcion;
 	private int plazas;
+	private int plazas_libres;
 	private float precio;
+	private boolean pagado;
 	private String dni_p;
 
 	public DtoPiso() {
@@ -17,7 +19,7 @@ public class DtoPiso {
 	}
 
 	public DtoPiso(int cod_piso, String imagenSalon, String imagenCocina, String imagenDormitorio, String imagenBano,
-			String direccion, String descripcion, int plazas, float precio, String dni_p) {
+			String direccion, String descripcion, int plazas, int plazas_libres, float precio, boolean pagado, String dni_p) {
 		super();
 		this.cod_piso = cod_piso;
 		this.imagenSalon = imagenSalon;
@@ -27,7 +29,9 @@ public class DtoPiso {
 		this.direccion = direccion;
 		this.descripcion = descripcion;
 		this.plazas = plazas;
+		this.plazas_libres = plazas_libres;
 		this.precio = precio;
+		this.pagado = pagado;
 		this.dni_p = dni_p;
 	}
 
@@ -95,12 +99,28 @@ public class DtoPiso {
 		this.plazas = plazas;
 	}
 
+	public int getPlazas_libres() {
+		return plazas_libres;
+	}
+
+	public void setPlazas_libres(int plaza_libres) {
+		this.plazas_libres = plaza_libres;
+	}
+
 	public float getPrecio() {
 		return precio;
 	}
 
 	public void setPrecio(float precio) {
 		this.precio = precio;
+	}
+	
+	public boolean isPagado() {
+		return pagado;
+	}
+
+	public void setPagado(boolean pagado) {
+		this.pagado = pagado;
 	}
 
 	public String getDni_p() {
@@ -110,6 +130,5 @@ public class DtoPiso {
 	public void setDni_p(String dni_p) {
 		this.dni_p = dni_p;
 	}
-	
 
 }

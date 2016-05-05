@@ -1,0 +1,15 @@
+.main {
+	margin-top: 100px;
+}
+
+img{
+	width:450px;
+	height: 700px; 
+}
+.carousel .item img {
+	margin: 0 auto; /* Align slide image horizontally center */
+}
+
+.carousel {
+	background-color: black;
+}
