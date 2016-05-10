@@ -212,10 +212,10 @@ public class PropietarioController {
 		// declaracion de variables
 		DaoPiso daoP = new DaoPiso();
 		DtoPiso piso = new DtoPiso();
-
+		
 		// recepcion de valores
 		piso.setCod_piso(Integer.parseInt(req.getParameter("cod_piso")));
-
+		
 		// funcion
 		daoP.BajaPiso(piso);
 

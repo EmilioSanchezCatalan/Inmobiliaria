@@ -24,7 +24,7 @@
 					<div class="collapse navbar-collapse">
 						<ul class="nav navbar-nav">
 							<li><a href="PisosPropietario">Mis pisos</a></li>
-							<li><a href="Paypal">Añadir un piso</a></li>
+							<li><a href="CrearPiso">Añadir un piso</a></li>
 							<li><a href="CerrarSesion">Cerrar Sesion</a></li>
 						</ul>
 					</div>

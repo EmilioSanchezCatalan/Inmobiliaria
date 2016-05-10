@@ -22,7 +22,7 @@
 						<ul class="nav navbar-nav">
 							<li><a href="Registrarse">Registrarse</a></li>
 							<li><a href="Sesion">Iniciar sesion</a></li>
-							<li><a href="">Contacto</a></li>
+							<li><a href="Contacto">Contacto</a></li>
 						</ul>
 					</div>
 				</div>

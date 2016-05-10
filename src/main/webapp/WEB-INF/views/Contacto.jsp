@@ -9,7 +9,7 @@
 			content="width=device-width, user-scalable=no initial-scale=1.0 maximum-scale=1.0, minimum-scale=1.0">
 		<link href="<c:url value="/resources/bootstrap/css/bootstrap.min.css"/>"
 			rel="stylesheet">
-		<link href="<c:url value="/resources/css/index.css"/>" rel="stylesheet">
+		<link href="<c:url value="/resources/css/Contacto.css"/>" rel="stylesheet">
 		<title>Inuja</title>
 	</head>
 	<body>
@@ -31,10 +31,21 @@
 				</nav>
 			</div>
 		</header>
-		<section class="main">
-			<div id="lista_pisos"></div>
+		<section class="main container">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<h2 class="text-center">Página de contacto</h2>
+							<h4>
+								Emilio Sánchez Catalán <small class="pull-right">esc00019@red.ujaen.es</small><br>
+								Noelia Toral Jiménez <small class="pull-right">ntj00003@red.ujaen.es</small>
+							</h4>
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
-		<script src="<c:url value="/resources/js/index_tabla.js"/>"></script>
 		<script src='<c:url value="/resources/bootstrap/js/jquery.min.js"/>'></script>
 		<script src='<c:url value="/resources/bootstrap/js/bootstrap.min.js"/>'></script>
 	

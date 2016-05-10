@@ -21,6 +21,11 @@ public class HomeController {
 	public String index() {
 		return "index";
 	}
+	
+	@RequestMapping(value = "/Contacto", method = RequestMethod.GET)
+	public String Contacto() {
+		return "Contacto";
+	}
 
 	// JSON de todos los pisos
 	@RequestMapping(value = "/Jpisos", method = RequestMethod.GET)

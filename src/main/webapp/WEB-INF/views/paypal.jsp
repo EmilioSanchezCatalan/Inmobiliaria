@@ -45,7 +45,7 @@
 							<input type="image" src="https://www.sandbox.paypal.com/es_ES/ES/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal. La forma rápida y segura de pagar en Internet.">
 							<img alt="" border="0" src="https://www.sandbox.paypal.com/es_ES/i/scr/pixel.gif" width="1" height="1">
 							<input type="hidden" name="return" value="http://127.0.0.1:8080/inmobiliaria/Paypal"/>
-							<input type='hidden' name='cancel_return' value='http://127.0.0.1:8080/inmobiliaria/Paypal"'>
+							<input type='hidden' name='cancel_return' value="http://127.0.0.1:8080/inmobiliaria/noPaypal">
 						</form>
 					</div>
 				</div>
