@@ -39,7 +39,6 @@
 							<h2 class="text-center">Página de contacto</h2>
 							<h4>
 								Emilio Sánchez Catalán <small class="pull-right">esc00019@red.ujaen.es</small><br>
-								Noelia Toral Jiménez <small class="pull-right">ntj00003@red.ujaen.es</small>
 							</h4>
 						</div>
 					</div>

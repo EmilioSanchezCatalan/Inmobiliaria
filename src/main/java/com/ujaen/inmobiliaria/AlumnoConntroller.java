@@ -38,6 +38,7 @@ public class AlumnoConntroller {
 		lpisos = daoP.PisosDisponibles();
 		model.addAttribute("lpisos", lpisos);
 		model.addAttribute("alumno",alumno);
+		
 		return "jpisos";
 	}
 

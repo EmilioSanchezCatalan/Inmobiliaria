@@ -96,12 +96,11 @@ public class PropietarioController {
 		DtoAutentifica autentifica = new DtoAutentifica();
 		DaoPiso daoP = new DaoPiso();
 		DaoPropietario daoPr = new DaoPropietario();
-		int plazas, numPiso;
+		int plazas;
 		float precio;
 		String direccion, descripcion;
 
 		// recepcion de valores
-		numPiso = daoP.totalPisos() + 1;
 		direccion = req.getParameter("direccion");
 		try {
 			plazas = Integer.parseInt(req.getParameter("plazas"));
@@ -122,10 +121,7 @@ public class PropietarioController {
 			return "index";
 		}
 		propietario.setDni(daoPr.cogerDNI(autentifica));
-		piso.setImagenSalon("resources/imagenes/pisos/" + numPiso + "/1.jpg");
-		piso.setImagenCocina("resources/imagenes/pisos/" + numPiso + "/2.jpg");
-		piso.setImagenDormitorio("resources/imagenes/pisos/" + numPiso + "/3.jpg");
-		piso.setImagenBano("resources/imagenes/pisos/" + numPiso + "/4.jpg");
+		
 		piso.setDireccion(direccion);
 		piso.setPlazas(plazas);
 		piso.setPlazas_libres(plazas);
@@ -146,10 +142,12 @@ public class PropietarioController {
 
 		// declaracion de variables
 		DaoPiso daoP = new DaoPiso();
+		DtoPiso piso = new DtoPiso();
 		int nfotos = 1;
-		int numPiso = daoP.totalPisos();
+		piso.setCod_piso(daoP.ultimoPiso());
+		//Indicar lugar donde se almacenaran las imagenes
 		String srcEstandar = "C:/Users/windic/Documents/GitHub/Inmobiliaria/src/main/webapp/resources/imagenes/pisos/"
-				+ numPiso;
+				+ piso.getCod_piso();
 		FileItemFactory factory = new DiskFileItemFactory();
 		ServletFileUpload upload = new ServletFileUpload(factory);
 
@@ -176,7 +174,9 @@ public class PropietarioController {
 		} catch (Exception ex) {
 			ex.getMessage();
 		}
-
+		
+		daoP.imagenesPiso(piso);
+		
 		return "paypal";
 	}
 

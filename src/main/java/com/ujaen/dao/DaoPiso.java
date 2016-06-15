@@ -29,8 +29,8 @@ public class DaoPiso implements DaoPiso_interface {
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				piso = new DtoPiso(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
-						rs.getString(6), rs.getString(7), rs.getInt(8), rs.getInt(9), rs.getFloat(10), rs.getBoolean(11),
-						rs.getString(12));
+						rs.getString(6), rs.getString(7), rs.getInt(8), rs.getInt(9), rs.getFloat(10),
+						rs.getBoolean(11), rs.getString(12));
 				lpisos.add(piso);
 			}
 			rs.close();
@@ -55,8 +55,8 @@ public class DaoPiso implements DaoPiso_interface {
 			while (rs.next()) {
 
 				piso = new DtoPiso(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
-						rs.getString(6), rs.getString(7), rs.getInt(8), rs.getInt(9), rs.getFloat(10), rs.getBoolean(11),
-						rs.getString(12));
+						rs.getString(6), rs.getString(7), rs.getInt(8), rs.getInt(9), rs.getFloat(10),
+						rs.getBoolean(11), rs.getString(12));
 				pisos.add(piso);
 			}
 			rs.close();
@@ -104,8 +104,8 @@ public class DaoPiso implements DaoPiso_interface {
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				piso = new DtoPiso(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
-						rs.getString(6), rs.getString(7), rs.getInt(8), rs.getInt(9), rs.getFloat(10), rs.getBoolean(11),
-						rs.getString(12));
+						rs.getString(6), rs.getString(7), rs.getInt(8), rs.getInt(9), rs.getFloat(10),
+						rs.getBoolean(11), rs.getString(12));
 				lpisos.add(piso);
 			}
 			rs.close();
@@ -117,21 +117,27 @@ public class DaoPiso implements DaoPiso_interface {
 		return lpisos;
 	}
 
-	public int totalPisos() {
-		String sql = "Select count(cod_piso) from piso;";
-		ResultSet rs = null;
-		int total = 0;
+	public void imagenesPiso(DtoPiso piso) {
+		String[] sql = {
+				"update piso set imagenSalon = \"resources/imagenes/pisos/" + piso.getCod_piso()
+						+ "/1.jpg\" where cod_piso = ?",
+				"update piso set imagenCocina = \"resources/imagenes/pisos/" + piso.getCod_piso()
+						+ "/2.jpg\" where cod_piso = ?",
+				"update piso set imagenDormitorio = \"resources/imagenes/pisos/" + piso.getCod_piso()
+						+ "/3.jpg\" where cod_piso = ?",
+				"update piso set imagenBano = \"resources/imagenes/pisos/" + piso.getCod_piso()
+						+ "/4.jpg\" where cod_piso = ?" };
 		dao.getConnection();
-		try {
-			PreparedStatement stmt = dao.conn.prepareStatement(sql);
-			rs = stmt.executeQuery();
-			while (rs.next()) {
-				total = rs.getInt(1);
+		for (int i = 0; i < sql.length; i++) {
+			try {
+				PreparedStatement stmt = dao.conn.prepareStatement(sql[i]);
+				stmt.setInt(1, piso.getCod_piso());
+				stmt.execute();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
 			}
-		} catch (SQLException ex) {
-			ex.getMessage();
 		}
-		return total;
+
 	}
 
 	public void actualizaPlazasMenos(DtoPiso piso) {
@@ -169,6 +175,7 @@ public class DaoPiso implements DaoPiso_interface {
 			ex.printStackTrace();
 		}
 	}
+
 	public void actualizaPlazasMas(DtoPiso piso) {
 
 		// primera sentecia
@@ -215,8 +222,8 @@ public class DaoPiso implements DaoPiso_interface {
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				piso = new DtoPiso(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
-						rs.getString(6), rs.getString(7), rs.getInt(8), rs.getInt(9), rs.getFloat(10), rs.getBoolean(11),
-						rs.getString(12));
+						rs.getString(6), rs.getString(7), rs.getInt(8), rs.getInt(9), rs.getFloat(10),
+						rs.getBoolean(11), rs.getString(12));
 			}
 			rs.close();
 			stmt.close();
@@ -252,8 +259,8 @@ public class DaoPiso implements DaoPiso_interface {
 			rs = stmt.executeQuery();
 			while (rs.next()) {
 				piso = new DtoPiso(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
-						rs.getString(6), rs.getString(7), rs.getInt(8), rs.getInt(9), rs.getFloat(10), rs.getBoolean(11),
-						rs.getString(12));
+						rs.getString(6), rs.getString(7), rs.getInt(8), rs.getInt(9), rs.getFloat(10),
+						rs.getBoolean(11), rs.getString(12));
 			}
 			rs.close();
 			stmt.close();
@@ -263,62 +270,85 @@ public class DaoPiso implements DaoPiso_interface {
 		}
 		return piso;
 	}
-	public void pagado(){
+
+	public void pagado() {
 		String sql = "select cod_piso from piso where pagado = false;";
 		ResultSet rs = null;
 		int cod_piso = 0;
 		dao.getConnection();
-		try{
+		try {
 			PreparedStatement stmt = dao.conn.prepareStatement(sql);
 			rs = stmt.executeQuery();
-			while(rs.next()){
+			while (rs.next()) {
 				cod_piso = rs.getInt(1);
 			}
 			rs.close();
 			stmt.close();
 			dao.conn.close();
-		}catch(SQLException ex){
+		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
 		sql = "update piso set pagado = true where cod_piso = ?";
 		dao.getConnection();
-		try{
+		try {
 			PreparedStatement stmt = dao.conn.prepareStatement(sql);
 			stmt.setInt(1, cod_piso);
 			stmt.execute();
 			stmt.close();
 			dao.conn.close();
-		}catch(SQLException ex){
+		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
 	}
-	public void noPagado(){
+
+	public void noPagado() {
 		String sql = "select cod_piso from piso where pagado = false;";
 		ResultSet rs = null;
 		int cod_piso = 0;
 		dao.getConnection();
-		try{
+		try {
 			PreparedStatement stmt = dao.conn.prepareStatement(sql);
 			rs = stmt.executeQuery();
-			while(rs.next()){
+			while (rs.next()) {
 				cod_piso = rs.getInt(1);
 			}
 			rs.close();
 			stmt.close();
 			dao.conn.close();
-		}catch(SQLException ex){
+		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
 		sql = "delete from piso where cod_piso = ?;";
 		dao.getConnection();
-		try{
+		try {
 			PreparedStatement stmt = dao.conn.prepareStatement(sql);
 			stmt.setInt(1, cod_piso);
 			stmt.execute();
 			stmt.close();
 			dao.conn.close();
-		}catch(SQLException ex){
+		} catch (SQLException ex) {
 			ex.printStackTrace();
 		}
 	}
+
+	public int ultimoPiso() {
+		String sql = "Select max(cod_piso) from piso;";
+		int cod_piso = 0;
+		ResultSet rs = null;
+		dao.getConnection();
+		try {
+			PreparedStatement stmt = dao.conn.prepareStatement(sql);
+			rs = stmt.executeQuery();
+			while (rs.next()) {
+				cod_piso = rs.getInt(1);
+			}
+			stmt.close();
+			rs.close();
+			dao.conn.close();
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		return cod_piso;
+	}
+
 }
